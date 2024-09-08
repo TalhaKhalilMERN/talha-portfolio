@@ -1,0 +1,33 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.navmenu ul {
+  display: flex;
+}
+
+/* For the mobile toggle icon */
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
