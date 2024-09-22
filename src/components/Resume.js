@@ -9,7 +9,7 @@ function Resume() {
       <div className={`container ${styles['section-title']}`} data-aos="fade-up">
         <h2>Resume</h2>
         <p>My Professional Journey at a Glance</p>
-        <a href="/TalhaKhalil_CV.pdf" download className={styles['download-btn']}>
+        <a href="/Resume.pdf" download className={styles['download-btn']}>
             <i className="bi bi-download"></i> Download CV</a>
       </div>
 
