@@ -15,7 +15,7 @@ function Hero() {
         strings: [
           'Frontend Developer',
           'Backend Developer',
-          'Full Stack Web Developer',
+          'MERN Stack Developer',
           'Freelancer'
         ],
         typeSpeed: 100,
