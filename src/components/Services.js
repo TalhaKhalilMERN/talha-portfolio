@@ -8,7 +8,7 @@ function Services() {
 
       <div className={`container ${styles['section-title']}`} data-aos="fade-up">
         <h2>Services</h2>
-        <p>Elevating Web Presence with End-to-End Expertise</p>
+        <p>Crafting Modern, Responsive & User-Centric Web Experiences</p>
       </div>
 
       <div className="container">
@@ -18,77 +18,72 @@ function Services() {
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div className={styles['service-item']}>
               <div className={styles.icon}>
-                <i className="bi bi-activity"></i>
+                <i className="bi bi-code-slash"></i>
               </div>
               <a href="#" className="stretched-link">
-                <h3>Full-Stack Web Development</h3>
+                <h3>React.js Development</h3>
               </a>
-              <p>Develop full-stack applications using React.js for the frontend and Node.js/Express
-                 for the backend, integrated with SQL and MongoDB databases.</p>
+              <p>Build dynamic, high-performance single-page applications using React.js with modern hooks, state management, and component architecture.</p>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div className={styles['service-item']}>
               <div className={styles.icon}>
-                <i className="bi bi-broadcast"></i>
+                <i className="bi bi-phone"></i>
               </div>
               <a href="#" className="stretched-link">
-                <h3>Frontend Development</h3>
+                <h3>Responsive Web Design</h3>
               </a>
-              <p>Create responsive, user-friendly interfaces using React.js, HTML,
-                 CSS, and Bootstrap. Focus on delivering intuitive user experiences.</p>
+              <p>Create pixel-perfect, mobile-first responsive designs that work seamlessly across all devices using HTML5, CSS3, and modern frameworks.</p>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div className={styles['service-item']}>
               <div className={styles.icon}>
-                <i className="bi bi-easel"></i>
+                <i className="bi bi-palette"></i>
               </div>
               <a href="#" className="stretched-link">
-                <h3>Backend Development</h3>
+                <h3>UI/UX Implementation</h3>
               </a>
-              <p>Build robust server-side applications and APIs using Node.js and Express. Handle business logic, data processing,
-                 and integration with SQL databases.</p>
+              <p>Transform designs into interactive, accessible user interfaces with attention to detail, animations, and smooth user experiences.</p>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div className={styles['service-item']}>
               <div className={styles.icon}>
-                <i className="bi bi-bounding-box-circles"></i>
+                <i className="bi bi-lightning-charge"></i>
               </div>
               <a href="#" className="stretched-link">
-                <h3>Database Design & Management</h3>
+                <h3>Performance Optimization</h3>
               </a>
-              <p>Design, implement, and manage SQL and MongoDB databases. Optimize database performance and ensure secure data storage</p>
+              <p>Optimize web applications for speed and performance through code splitting, lazy loading, and best practices for faster load times.</p>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div className={styles['service-item']}>
               <div className={styles.icon}>
-                <i className="bi bi-calendar4-week"></i>
+                <i className="bi bi-plug"></i>
               </div>
               <a href="#" className="stretched-link">
-                <h3>API Development & Integration</h3>
+                <h3>API Integration</h3>
               </a>
-              <p>Develop and integrate RESTful APIs, enabling seamless communication between
-                 frontend and backend services.</p>
+              <p>Integrate third-party APIs and RESTful services into frontend applications, handling data fetching, state management, and error handling.</p>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div className={styles['service-item']}>
               <div className={styles.icon}>
-                <i className="bi bi-chat-square-text"></i>
+                <i className="bi bi-arrow-repeat"></i>
               </div>
               <a href="#" className="stretched-link">
-                <h3>Website Deployment & Maintenance</h3>
+                <h3>Website Maintenance & Updates</h3>
               </a>
-              <p>Deploy web applications to cloud platforms (e.g., Heroku, AWS) and provide ongoing
-                 maintenance, updates, and optimizations.</p>
+              <p>Provide ongoing support, bug fixes, feature enhancements, and regular updates to keep your web applications running smoothly.</p>
             </div>
           </div>
 

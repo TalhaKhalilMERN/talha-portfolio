@@ -1,6 +1,5 @@
 // components/Header.js
 import React,{useRef, useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import heroImage from "./assets/img/hero-img.jpg";
 import styles from './assets/css/main.module.css';
 import Typed from 'typed.js';
@@ -14,9 +13,10 @@ function Hero() {
       const options = {
         strings: [
           'Frontend Developer',
-          'Backend Developer',
-          'MERN Stack Developer',
-          'Freelancer'
+          'React.js Developer',
+          'Next.js Developer',
+          'UI Developer',
+          'Web Developer'
         ],
         typeSpeed: 100,
         backSpeed: 50,
@@ -51,15 +51,3 @@ function Hero() {
 }
 
 export default Hero;
-
-
-{/* <section id="hero" className="hero section dark-background">
-
-<img src={heroImage} alt="" data-aos="fade-in"/>
-
-<div className="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-  <h2>I am Talha Khalil</h2>
-  <p><span className="typed" data-typed-items="Frontend Developer,Backend Developer, Full Stack Web Developer, Freelancer"></span></p>
-</div>
-
-</section> */}

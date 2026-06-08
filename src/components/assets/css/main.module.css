@@ -477,17 +477,18 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  /* border: 1px solid color-mix(in srgb, var(--default-color), transparent 30%); */
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  color: #ffffff;
   margin: 0 10px;
   transition: 0.3s;
-  background-color: rgb(29, 29, 180);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer .social-links a:hover {
-  color: var(--default-color);
-  border-color: var(--default-color);
+  color: #1e3a8a;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .footer .credits {
@@ -1676,3 +1677,5 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+

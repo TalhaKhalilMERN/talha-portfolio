@@ -109,6 +109,24 @@ function Header() {
             <li>
               <a
                 href="/"
+                className={activeSection === 'skills' ? styles.active : ''}
+                onClick={(e) => handleScrollToSection(e, 'skills')}
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                className={activeSection === 'resume' ? styles.active : ''}
+                onClick={(e) => handleScrollToSection(e, 'resume')}
+              >
+                Resume
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
                 className={activeSection === 'services' ? styles.active : ''}
                 onClick={(e) => handleScrollToSection(e, 'services')}
               >
@@ -118,10 +136,10 @@ function Header() {
             <li>
               <a
                 href="/"
-                className={activeSection === 'stats' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'stats')}
+                className={activeSection === 'portfolio' ? styles.active : ''}
+                onClick={(e) => handleScrollToSection(e, 'portfolio')}
               >
-                Stats
+                Portfolio
               </a>
             </li>
             <li>
