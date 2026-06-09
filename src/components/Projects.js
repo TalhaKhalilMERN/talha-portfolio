@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import TechBadge from './TechBadge';
@@ -6,6 +6,11 @@ import '../components/assets/css/Portfolio.css';
 
 function Projects() {
   const [selectedTech, setSelectedTech] = useState('All');
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Get all unique technologies
   const allTechnologies = useMemo(() => {

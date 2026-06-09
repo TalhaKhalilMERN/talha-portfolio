@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './assets/css/main.module.css';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileNavActive, setMobileNavActive] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScrollSpy = () => {
@@ -55,13 +58,31 @@ function Header() {
 
   const handleScrollToSection = (e, sectionId) => {
     e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-      window.scrollTo({
-        top: section.offsetTop - parseInt(scrollMarginTop, 10),
-        behavior: 'smooth',
-      });
+    
+    // If not on home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Use setTimeout to allow navigation to complete before scrolling
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+          window.scrollTo({
+            top: section.offsetTop - parseInt(scrollMarginTop, 10),
+            behavior: 'smooth',
+          });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+        window.scrollTo({
+          top: section.offsetTop - parseInt(scrollMarginTop, 10),
+          behavior: 'smooth',
+        });
+      }
     }
   
     if (mobileNavActive) {
