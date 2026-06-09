@@ -1,33 +1,14 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import TechBadge from './TechBadge';
 import '../components/assets/css/Portfolio.css';
 
 function Projects() {
-  const [selectedTech, setSelectedTech] = useState('All');
-
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // Get all unique technologies
-  const allTechnologies = useMemo(() => {
-    const techSet = new Set();
-    projectsData.forEach(project => {
-      project.techStack.forEach(tech => techSet.add(tech));
-    });
-    return ['All', ...Array.from(techSet).sort()];
-  }, []);
-
-  // Filter projects based on selected technology
-  const filteredProjects = useMemo(() => {
-    if (selectedTech === 'All') return projectsData;
-    return projectsData.filter(project => 
-      project.techStack.includes(selectedTech)
-    );
-  }, [selectedTech]);
 
   return (
     <div className="projects-page">
@@ -57,20 +38,8 @@ function Projects() {
 
       <section className="projects-filter">
         <div className="container">
-          {/* <div className="filter-buttons" data-aos="fade-up">
-            {allTechnologies.map(tech => (
-              <button
-                key={tech}
-                className={`filter-btn ${selectedTech === tech ? 'active' : ''}`}
-                onClick={() => setSelectedTech(tech)}
-              >
-                {tech}
-              </button>
-            ))}
-          </div> */}
-
           <div className="row gy-4">
-            {filteredProjects.map((project, index) => (
+            {projectsData.map((project, index) => (
               <div 
                 key={project.id} 
                 className="col-lg-4 col-md-6" 
@@ -137,7 +106,7 @@ function Projects() {
             ))}
           </div>
 
-          {filteredProjects.length === 0 && (
+          {projectsData.length === 0 && (
             <div className="text-center mt-5" data-aos="fade-up">
               <p>No projects found with the selected technology.</p>
             </div>

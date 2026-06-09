@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './assets/css/main.module.css';
 
 function Pricing() {

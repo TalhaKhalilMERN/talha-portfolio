@@ -7,7 +7,6 @@ import Skills from "./components/Skills";
 import Resume from "./components/Resume";
 import Services from "./components/Services";
 import Stats from "./components/Stats";
-import Pricing from "./components/Pricing";
 import Portfolio from "./components/Portfolio";
 import Projects from "./components/Projects";
 import ProjectDetail from "./components/ProjectDetail";
@@ -29,14 +28,6 @@ function App() {
       } else {
         setIsVisible(false);
       }
-    };
-
-    // Scroll to top when button is clicked
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
     };
 
     // Add event listeners
@@ -82,12 +73,11 @@ function App() {
       <Footer />
       <div>
         {" "}
-        <a
-          href="#"
+        <button
+          type="button"
           id="scroll-top"
           className={`${styles["scroll-top"]} ${isVisible ? styles.active : ""} d-flex align-items-center justify-content-center`}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             window.scrollTo({
               top: 0,
               behavior: "smooth",
@@ -95,7 +85,7 @@ function App() {
           }}
         >
           <i className="bi bi-arrow-up-short"></i>
-        </a>
+        </button>
       </div>
     </Router>
   );
