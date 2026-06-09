@@ -84,6 +84,17 @@
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type=submit]:hover:not(:disabled) {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.contact .php-email-form button[type=submit]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.contact .php-email-form button[type=submit] .spinner-border {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
 }

@@ -1,23 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import styles from './assets/css/main.module.css';
 
 function Contact() {
   const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     emailjs.sendForm('service_h19h3jv', 'template_cn12cgu', form.current, 'i6T1ZXXgP2G1TQXjC')
       .then((result) => {
           console.log(result.text);
           alert('Message sent successfully!');
+          e.target.reset();
       }, (error) => {
           console.log(error.text);
           alert('Failed to send the message, please try again.');
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
-    
-    e.target.reset(); 
   };
 
   return (
@@ -78,7 +82,18 @@ function Contact() {
               <textarea className="form-control" name="message" rows="6" placeholder="Message" required></textarea>
             </div>
             <div className="col-md-12 text-center">
-              <button type="submit">Send Message</button>
+              <button type="submit" disabled={isLoading} style={{ 
+                opacity: isLoading ? 0.7 : 1,
+                cursor: isLoading ? 'not-allowed' : 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                {isLoading && (
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                )}
+                {isLoading ? 'Sending...' : 'Send Message'}
+              </button>
             </div>
           </div>
         </form>
