@@ -12,7 +12,6 @@ import Projects from "./components/Projects";
 import ProjectDetail from "./components/ProjectDetail";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import styles from "./components/assets/css/main.module.css";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -56,10 +55,10 @@ function App() {
             <main>
               <Hero />
               <About />
-              <Skills />
               <Resume />
-              <Services />
+              <Skills />
               <Portfolio />
+              <Services />
               <Stats />
               {/* <Pricing /> */}
               {/* <Testimonials /> */}
@@ -72,11 +71,10 @@ function App() {
       </Routes>
       <Footer />
       <div>
-        {" "}
         <button
           type="button"
           id="scroll-top"
-          className={`${styles["scroll-top"]} ${isVisible ? styles.active : ""} d-flex align-items-center justify-content-center`}
+          className={isVisible ? 'active' : ''}
           onClick={() => {
             window.scrollTo({
               top: 0,

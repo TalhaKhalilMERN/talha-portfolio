@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
-import styles from './assets/css/main.module.css';
 
 function Contact() {
   const form = useRef();
@@ -25,78 +24,125 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className={styles.contact}>
-
-      <div className={`container ${styles['section-title']}`} data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Get in Touch for Collaboration</p>
-      </div>
-
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
-        <div className={styles['info-wrap']} data-aos="fade-up" data-aos-delay="200">
-          <div className="row gy-5">
-            <div className="col-lg-4">
-              <div className={`${styles['info-item']} d-flex align-items-center`}>
-                <i className="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>Rawalpindi, Punjab, Pakistan</p>
-                </div>
-              </div>
+    <section id="contact" className="section">
+      <div className="container" data-aos="fade-up">
+        
+        <div className="section-title">
+          <div className="section-badge-row">
+            <div className="section-badge-icon contact">
+              <i className="bi bi-envelope-fill"></i>
             </div>
-
-            <div className="col-lg-4">
-              <div className={`${styles['info-item']} d-flex align-items-center`}>
-                <i className="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Us</h3>
-                  <p>+92 303 5562974</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4">
-              <div className={`${styles['info-item']} d-flex align-items-center`}>
-                <i className="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Us</h3>
-                  <p>talhakhalil974@gmail.com</p>
-                </div>
-              </div>
-            </div>
+            <span className="section-badge-text">Contact</span>
           </div>
+          <h2>Let's work <span className="gradient-together">together</span></h2>
+          <p>Get in touch for collaborations, opportunities, or questions</p>
         </div>
 
-        <form ref={form} onSubmit={sendEmail} className={styles['php-email-form']} data-aos="fade-up" data-aos-delay="300">
-          <div className="row gy-4">
-            <div className="col-md-6">
-              <input type="text" name="from_name" className="form-control" placeholder="Your Name" required />
+        <div className="contact-grid-modern">
+          {/* Left Column - Contact Details */}
+          <div className="contact-info-card" data-aos="fade-right">
+            
+            <div className="contact-info-item">
+              <div className="contact-info-icon">
+                <i className="bi bi-geo-alt"></i>
+              </div>
+              <div className="contact-info-details">
+                <h4>Address</h4>
+                <p>Rawalpindi, Pakistan</p>
+              </div>
             </div>
-            <div className="col-md-6 ">
-              <input type="email" className="form-control" name="from_email" placeholder="Your Email" required />
+
+            <div className="contact-info-item">
+              <div className="contact-info-icon">
+                <i className="bi bi-telephone"></i>
+              </div>
+              <div className="contact-info-details">
+                <h4>Call</h4>
+                <p>+92 303 5562974</p>
+              </div>
             </div>
-            <div className="col-md-12">
-              <input type="text" className="form-control" name="from_subject" placeholder="Subject" required />
+
+            <div className="contact-info-item">
+              <div className="contact-info-icon">
+                <i className="bi bi-envelope"></i>
+              </div>
+              <div className="contact-info-details">
+                <h4>Email</h4>
+                <p style={{ fontSize: '13px' }}>talhakhalil974@gmail.com</p>
+              </div>
             </div>
-            <div className="col-md-12">
-              <textarea className="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-            </div>
-            <div className="col-md-12 text-center">
-              <button type="submit" disabled={isLoading} style={{ 
-                opacity: isLoading ? 0.7 : 1,
-                cursor: isLoading ? 'not-allowed' : 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px'
-              }}>
-                {isLoading && (
-                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                )}
-                {isLoading ? 'Sending...' : 'Send Message'}
-              </button>
-            </div>
+
           </div>
-        </form>
+
+          {/* Right Column - Form */}
+          <div className="contact-form-card" data-aos="fade-left">
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="row">
+                
+                <div className="col-md-6 contact-form-group">
+                  <input 
+                    type="text" 
+                    name="from_name" 
+                    className="contact-form-control" 
+                    placeholder="Your Name" 
+                    required 
+                  />
+                </div>
+                
+                <div className="col-md-6 contact-form-group">
+                  <input 
+                    type="email" 
+                    name="from_email" 
+                    className="contact-form-control" 
+                    placeholder="Your Email" 
+                    required 
+                  />
+                </div>
+
+                <div className="col-md-12 contact-form-group">
+                  <input 
+                    type="text" 
+                    name="from_subject" 
+                    className="contact-form-control" 
+                    placeholder="Subject" 
+                    required 
+                  />
+                </div>
+
+                <div className="col-md-12 contact-form-group">
+                  <textarea 
+                    name="message" 
+                    className="contact-form-control" 
+                    rows="6" 
+                    placeholder="Message" 
+                    required
+                  ></textarea>
+                </div>
+
+                <div className="col-md-12 text-center mt-3">
+                  <button 
+                    type="submit" 
+                    disabled={isLoading} 
+                    className="btn-premium-primary"
+                    style={{ minWidth: '160px', justifyContent: 'center' }}
+                  >
+                    {isLoading ? (
+                      <>
+                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message <i className="bi bi-send-fill" style={{ fontSize: '12px' }}></i>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
 
       </div>
     </section>

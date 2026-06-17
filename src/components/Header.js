@@ -1,56 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import styles from './assets/css/main.module.css';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileNavActive, setMobileNavActive] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const handleScrollSpy = () => {
+      if (location.pathname !== '/') return;
       const sections = document.querySelectorAll('section');
-      let currentSection = activeSection; // Keep track of the current section
-  
+      let currentSection = activeSection;
+
       sections.forEach(section => {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 100 && rect.bottom >= 100) {
+        // Give a bit of buffer for active state detection
+        if (rect.top <= 140 && rect.bottom >= 140) {
           currentSection = section.id;
         }
       });
-  
+
       if (currentSection !== activeSection) {
         setActiveSection(currentSection);
       }
     };
-  
+
     window.addEventListener('scroll', handleScrollSpy);
-  
     return () => {
       window.removeEventListener('scroll', handleScrollSpy);
     };
-  }, [activeSection]);
-  
+  }, [activeSection, location.pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
-      const selectBody = document.querySelector('body');
-      const selectHeader = document.querySelector('#header');
-      
-      if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-      
-      if (window.scrollY > 100) {
-        selectBody.classList.add('scrolled');
+      if (window.scrollY > 50) {
         setScrolled(true);
       } else {
-        selectBody.classList.remove('scrolled');
         setScrolled(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -59,130 +50,82 @@ function Header() {
   const handleScrollToSection = (e, sectionId) => {
     e.preventDefault();
     
-    // If not on home page, navigate to home first
     if (location.pathname !== '/') {
       navigate('/');
-      // Use setTimeout to allow navigation to complete before scrolling
       setTimeout(() => {
         const section = document.getElementById(sectionId);
         if (section) {
-          const scrollMarginTop = getComputedStyle(section).scrollMarginTop;
           window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop, 10),
+            top: section.offsetTop - 80,
             behavior: 'smooth',
           });
         }
       }, 100);
     } else {
-      // Already on home page, just scroll
       const section = document.getElementById(sectionId);
       if (section) {
-        const scrollMarginTop = getComputedStyle(section).scrollMarginTop;
         window.scrollTo({
-          top: section.offsetTop - parseInt(scrollMarginTop, 10),
+          top: section.offsetTop - 80,
           behavior: 'smooth',
         });
       }
     }
-  
-    if (mobileNavActive) {
-      setMobileNavActive(false);
-      document.body.classList.remove('mobile-nav-active');
-    }
   };
-  
 
-  // Toggle mobile navigation
-  const handleMobileNavToggle = () => {
-    setMobileNavActive(!mobileNavActive);
-    document.body.classList.toggle('mobile-nav-active');
-  };
+  const dockItems = [
+    { id: 'hero', label: 'Home', icon: 'bi-house-door' },
+    { id: 'about', label: 'About', icon: 'bi-person' },
+    { id: 'resume', label: 'Resume', icon: 'bi-briefcase' },
+    { id: 'skills', label: 'Skills', icon: 'bi-sliders' },
+    { id: 'portfolio', label: 'Portfolio', icon: 'bi-grid' },
+    { id: 'services', label: 'Services', icon: 'bi-code-slash' },
+    { id: 'contact', label: 'Contact', icon: 'bi-envelope' }
+  ];
 
   return (
-    <header id="header" className={`${styles.header} d-flex align-items-center sticky-top ${scrolled ? 'scrolled' : ''}`}>
-      <div className={`container-fluid container-xl position-relative d-flex align-items-center justify-content-between`}>
-        
-        <a href="/" className={`${styles.logo} d-flex align-items-center`}>
-          <h1 className={styles.sitename}>DevMERN</h1>
-        </a>
-        
-        <div className={`${mobileNavActive ? `${styles['mobile-nav-active']}` : ''}`}>
-          <nav id="navmenu" className={styles.navmenu}>
-          <ul>
-            <li>
-              <a
-                href="/"
-                className={activeSection === 'hero' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'hero')}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                className={activeSection === 'about' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'about')}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                className={activeSection === 'skills' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'skills')}
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                className={activeSection === 'resume' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'resume')}
-              >
-                Resume
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                className={activeSection === 'services' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'services')}
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                className={activeSection === 'portfolio' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'portfolio')}
-              >
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                className={activeSection === 'contact' ? styles.active : ''}
-                onClick={(e) => handleScrollToSection(e, 'contact')}
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-            {/* Mobile nav toggle button */}
-            <i 
-              className={`d-xl-none bi ${mobileNavActive ? 'bi-x' : 'bi-list'} ${styles['mobile-nav-toggle']}`} 
-              onClick={handleMobileNavToggle}
-            ></i>
-          </nav>
+    <>
+      {/* Top Navbar: Brand & Status only */}
+      <header className={`header-modern ${scrolled ? 'header-scrolled' : ''}`}>
+        <div className="nav-container">
+          <Link to="/" className="logo-modern">
+            Talha Khalil
+          </Link>
+          
+          <div className="status-badge">
+            <span className="dot"></span>
+            <span>Available for projects</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Floating Bottom Navigation Dock */}
+      <div className="bottom-dock">
+        {/* Dock Logo */}
+        <div 
+          className="dock-logo-container" 
+          onClick={(e) => handleScrollToSection(e, 'hero')}
+          title="Scroll to Top"
+        >
+          TK
         </div>
         
+        <div className="dock-divider"></div>
+
+        {/* Dock Items */}
+        {dockItems.map((item) => (
+          <div key={item.id} className="dock-item-wrapper">
+            <button
+              className={`dock-btn ${activeSection === item.id && location.pathname === '/' ? 'active' : ''}`}
+              onClick={(e) => handleScrollToSection(e, item.id)}
+              aria-label={item.label}
+            >
+              <i className={`bi ${item.icon}`}></i>
+            </button>
+            <span className="dock-tooltip">{item.label}</span>
+          </div>
+        ))}
       </div>
-    </header>
+    </>
   );
 }
 

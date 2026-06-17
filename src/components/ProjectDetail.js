@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import TechBadge from './TechBadge';
-import '../components/assets/css/Portfolio.css';
 
 function ProjectDetail() {
   const { slug } = useParams();
@@ -14,9 +13,10 @@ function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="container text-center py-5">
-        <h2>Project not found</h2>
-        <Link to="/projects" className="btn btn-primary mt-3">
+      <div className="container text-center py-5" style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <h2 className="mb-3">Project Not Found</h2>
+        <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>The project you are looking for does not exist.</p>
+        <Link to="/projects" className="btn-premium-primary">
           Back to Projects
         </Link>
       </div>
@@ -25,148 +25,163 @@ function ProjectDetail() {
 
   return (
     <div className="project-detail-page">
-      {/* Hero Section */}
-      <section className="project-hero">
+      {/* Detail Hero Section */}
+      <section className="project-detail-hero" style={{ background: `linear-gradient(180deg, ${project.color}10 0%, var(--bg-primary) 100%)` }}>
         <div className="container" data-aos="fade-up">
-          <Link to="/projects" className="back-link">
+          <Link to="/projects" className="project-card-link mb-4 d-inline-flex align-items-center gap-2" style={{ color: 'var(--text-secondary)' }}>
             <i className="bi bi-arrow-left"></i> Back to Projects
           </Link>
           
-          <span 
-            className="domain-tag"
-            style={{ 
-              backgroundColor: `${project.color}25`,
-              color: '#fff',
-              display: 'inline-block',
-              padding: "10px 18px",
-              marginTop: '16px',
-              marginLeft: '8px'
-            }}
-          >
-            {project.domain}
-          </span>
-          
-          <h1 className='text-white'>{project.name}</h1>
-          <p className="project-hero-tagline">{project.tagline}</p>
-          
-          <div className="tech-badges-large">
-            {project.techStack.map((tech, idx) => (
-              <TechBadge key={idx} tech={tech} variant="dark" />
-            ))}
+          <div className="mt-3">
+            <span 
+              className="tech-badge mb-3"
+              style={{ 
+                borderColor: `${project.color}30`,
+                background: `${project.color}15`,
+                color: '#ffffff' 
+              }}
+            >
+              {project.domain}
+            </span>
+            <h1 className="mb-2" style={{ fontSize: '48px', fontWeight: '800', fontFamily: 'var(--font-heading)' }}>
+              {project.name}
+            </h1>
+            <p style={{ fontSize: '20px', color: 'var(--text-secondary)', maxWidth: '700px' }}>
+              {project.tagline}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section className="overview-section">
-        <div className="container" data-aos="fade-up">
-          <h2 className="section-heading">Overview</h2>
-          <p className="overview-text">{project.overview}</p>
-          
-          {/* Live Links Section */}
-          {project.liveLinks && project.liveLinks.length > 0 && (
-            <div className="live-links-section" data-aos="fade-up" data-aos-delay="100">
-              <h3 className="live-links-heading">
-                <i className="bi bi-box-arrow-up-right"></i> Live Links
-              </h3>
-              <div className="live-links-grid">
-                {project.liveLinks.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="live-link-btn"
-                    data-aos="fade-up"
-                    data-aos-delay={150 + (idx * 50)}
-                  >
-                    <span className="live-link-label">{link.label}</span>
-                    <i className="bi bi-arrow-up-right"></i>
-                  </a>
-                ))}
+      {/* Main Details Body */}
+      <section className="project-detail-body">
+        <div className="container">
+          <div className="project-detail-layout">
+            
+            {/* Left Content Column */}
+            <div data-aos="fade-right">
+              
+              {/* Overview Section */}
+              <div className="project-detail-section">
+                <h3 className="project-detail-title">Overview</h3>
+                <p style={{ fontSize: '16px', lineHeight: '1.8', color: 'var(--text-secondary)' }}>
+                  {project.overview}
+                </p>
               </div>
-            </div>
-          )}
-        </div>
-      </section>
 
-      {/* Key Features Section */}
-      <section className="features-section">
-        <div className="container" data-aos="fade-up">
-          <h2 className="section-heading">Key Features</h2>
-          <div className="row gy-4 mt-3">
-            {project.features.map((feature, idx) => (
-              <div key={idx} className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={100 * (idx + 1)}>
-                <div className="feature-card">
-                  <div className="feature-icon">
-                    <i className={feature.icon}></i>
-                  </div>
-                  <h4>{feature.title}</h4>
-                  <p>{feature.description}</p>
+              {/* Key Features Section */}
+              <div className="project-detail-section">
+                <h3 className="project-detail-title">Key Features</h3>
+                <div className="features-grid-modern">
+                  {project.features.map((feature, idx) => (
+                    <div key={idx} className="feature-card-modern">
+                      <h4>
+                        <i className={`bi ${feature.icon}`}></i>
+                        {feature.title}
+                      </h4>
+                      <p className="mt-2">{feature.description}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+
+              {/* Contributions Section */}
+              <div className="project-detail-section">
+                <h3 className="project-detail-title">My Contributions</h3>
+                <ul className="contributions-list-modern">
+                  {project.contributions.map((contribution, idx) => (
+                    <li key={idx}>
+                      <i className="bi bi-check-circle-fill"></i>
+                      <span>{contribution}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+
+            {/* Right Sidebar Column */}
+            <div data-aos="fade-left">
+              <div className="sidebar-card-modern">
+                
+                {/* Live Links */}
+                {project.liveLinks && project.liveLinks.length > 0 && (
+                  <div className="mb-5">
+                    <h4 className="sidebar-section-title">Deployment</h4>
+                    <div className="d-flex flex-column gap-2 mt-3">
+                      {project.liveLinks.map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-premium-primary text-center justify-content-center w-100"
+                        >
+                          {link.label} <i className="bi bi-box-arrow-up-right" style={{ fontSize: '13px' }}></i>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Scope Scale Stats */}
+                {project.scale && project.scale.length > 0 && (
+                  <div className="mb-5">
+                    <h4 className="sidebar-section-title">Project Scale</h4>
+                    <div className="d-flex flex-column gap-3 mt-3">
+                      {project.scale.map((item, idx) => (
+                        <div key={idx} className="d-flex justify-content-between align-items-center" style={{ fontSize: '14px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '10px' }}>
+                          <span style={{ color: 'var(--text-muted)' }}>{item.label}</span>
+                          <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{item.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Tech Stack Details */}
+                <div>
+                  <h4 className="sidebar-section-title">Tech Stack</h4>
+                  
+                  <div className="d-flex flex-column gap-4 mt-3">
+                    <div>
+                      <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Frontend</span>
+                      <div className="tech-badges-modern mt-2">
+                        {project.techStackDetailed.frontend.map((tech, idx) => (
+                          <TechBadge key={idx} tech={tech} />
+                        ))}
+                      </div>
+                    </div>
+
+                    {project.techStackDetailed.backend && project.techStackDetailed.backend.length > 0 && (
+                      <div>
+                        <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Backend</span>
+                        <div className="tech-badges-modern mt-2">
+                          {project.techStackDetailed.backend.map((tech, idx) => (
+                            <TechBadge key={idx} tech={tech} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {project.techStackDetailed.integrations && project.techStackDetailed.integrations.length > 0 && (
+                      <div>
+                        <span style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Integrations</span>
+                        <div className="tech-badges-modern mt-2">
+                          {project.techStackDetailed.integrations.map((tech, idx) => (
+                            <TechBadge key={idx} tech={tech} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
           </div>
-        </div>
-      </section>
-
-      {/* My Contributions Section */}
-      <section className="contributions-section">
-        <div className="container" data-aos="fade-up">
-          <h2 className="section-heading text-white">My Contributions</h2>
-          <ul className="contributions-list">
-            {project.contributions.map((contribution, idx) => (
-              <li className="align-items-center" key={idx} data-aos="fade-up" data-aos-delay={50 * (idx + 1)}>
-                <i className="bi bi-check-circle-fill"></i>
-                <span>{contribution}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Tech Stack Breakdown Section */}
-      <section className="tech-stack-section">
-        <div className="container" data-aos="fade-up">
-          <h2 className="section-heading">Tech Stack Breakdown</h2>
-          <div className="tech-stack-grid">
-            <div className="tech-stack-group" data-aos="fade-up" data-aos-delay="100">
-              <h4><i className="bi bi-laptop"></i> Frontend</h4>
-              <div className="tech-badges">
-                {project.techStackDetailed.frontend.map((tech, idx) => (
-                  <TechBadge key={idx} tech={tech} />
-                ))}
-              </div>
-            </div>
-            
-            <div className="tech-stack-group" data-aos="fade-up" data-aos-delay="200">
-              <h4><i className="bi bi-server"></i> Backend</h4>
-              <div className="tech-badges">
-                {project.techStackDetailed.backend.map((tech, idx) => (
-                  <TechBadge key={idx} tech={tech} />
-                ))}
-              </div>
-            </div>
-            
-            <div className="tech-stack-group" data-aos="fade-up" data-aos-delay="300">
-              <h4><i className="bi bi-plug"></i> Integrations</h4>
-              <div className="tech-badges">
-                {project.techStackDetailed.integrations.map((tech, idx) => (
-                  <TechBadge key={idx} tech={tech} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Explore More Section */}
-      <section className="explore-more-section">
-        <div className="container text-center" data-aos="fade-up">
-          <h3>Explore More Projects</h3>
-          <Link to="/projects" className="view-all-btn">
-            View All Projects <i className="bi bi-arrow-right"></i>
-          </Link>
         </div>
       </section>
     </div>
