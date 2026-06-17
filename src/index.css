@@ -522,7 +522,6 @@ section {
   border: 1px solid var(--border-color);
   border-radius: 99px;
   margin-bottom: 24px;
-  text-transform: lowercase;
   letter-spacing: 0.02em;
 }
 
