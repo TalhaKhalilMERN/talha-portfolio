@@ -76,22 +76,13 @@ function Hero() {
         {/* Social Grid */}
         <div className="hero-socials" data-aos="fade-up" data-aos-delay="500">
           <a 
-            href="https://www.facebook.com/share/sRoQaog92N8CyCPq/?mibextid=qi2Omg" 
+            href="https://github.com/TalhaKhalilMERN" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="hero-social-btn"
-            aria-label="Facebook Profile"
+            aria-label="GitHub Profile"
           >
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a 
-            href="https://www.instagram.com/talhakhalil68?igsh=eDNsbm9wMmE3cmt2" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hero-social-btn"
-            aria-label="Instagram Profile"
-          >
-            <i className="bi bi-instagram"></i>
+            <i className="bi bi-github"></i>
           </a>
           <a 
             href="https://www.linkedin.com/in/talha-khalil-9415b02a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
