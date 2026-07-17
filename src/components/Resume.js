@@ -42,8 +42,8 @@ function Resume() {
               </p>
               <ul className="mt-3">
                 <li>Rawalpindi, Punjab, Pakistan</li>
-                <li>+92 303 5562974</li>
-                <li>talhakhalil974@gmail.com</li>
+                <li><a href="tel:+923035562974" style={{ transition: "var(--transition-smooth)" }} className="resume-contact-link">+92 303 5562974</a></li>
+                <li><a href="mailto:talhakhalil974@gmail.com" style={{ transition: "var(--transition-smooth)" }} className="resume-contact-link">talhakhalil974@gmail.com</a></li>
               </ul>
             </div>
 
