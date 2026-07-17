@@ -117,7 +117,7 @@ export const projectsData = [
       },
     ],
     overview:
-      "A comprehensive real estate marketplace platform for property listings, rentals, sales, and service provider management. The platform serves property owners, buyers, renters, service providers, and administrators with a subscription-based listing system. Features include a 5-step property creation wizard with photo uploads and location mapping, advanced search with filters for location, price range, property type, and listing category. The system includes a service provider directory for contractors and agents, subscription plans with quota management for listing limits, and one-time add-ons for additional photos. Includes a full admin control panel for managing users, listings, payments, subscriptions, and platform activity, along with automated email notifications for property alerts.",
+      "A comprehensive real estate marketplace platform for property listings, rentals, sales, and service provider directories. I engineered and shipped over 85% of this platform's frontend, establishing the design system, state management flows, and responsive layouts. The client-facing experience features an interactive 5-step wizard with client-side photo processing and location lookup, alongside a highly advanced query system for listings. The payment infrastructure supports Stripe-based subscription plan tiers with dynamic quota thresholds and one-time feature upgrades. I also built a robust admin dashboard interface to monitor system payments, listings approvals, and user accounts.",
     features: [
       {
         icon: "bi-house-door",
@@ -157,10 +157,11 @@ export const projectsData = [
       },
     ],
     contributions: [
-      "Built the full property listing flow including a 5-step creation wizard with photo uploads, location input, and live preview.",
-      "Developed advanced property search UI with filters for location, price range, type, and listing category.",
-      "Implemented subscription UI with Stripe.js for plan selection, quota tracking, and one-time add-ons.",
-      "Delivered the admin panel UI for managing users, listings, payments, and platform activity.",
+      "Led and executed 85% of the frontend engineering of the platform, translating complex Figma mockups into a responsive, type-safe React 19 application.",
+      "Designed and built the core 5-step property wizard listing flow, incorporating dynamic image compression and upload progress indicators with Firebase Storage.",
+      "Developed the advanced search engine dashboard with debounced queries, location coordinates mapping, and multiple category/price filters.",
+      "Implemented the complete Stripe-integrated billing workspace, including automated subscription quota-enforcement layouts, plan modifiers, and transaction invoices.",
+      "Built the administrative dashboard layout featuring statistical summary charts (Recharts) and structured list tables for listing reviews, approvals, and user accounts.",
     ],
     techStackDetailed: {
       frontend: [
@@ -308,7 +309,7 @@ export const projectsData = [
       },
     ],
     overview:
-      "A secure web application for processing UK Electronic Travel Authorization (ETA) applications, enabling travelers from eligible countries to apply for 2-year, multiple-entry travel authorizations online. The platform supports up to 50 travelers per application with comprehensive document upload capabilities, step-by-step form guidance, and inline validation. Built with government-grade security featuring 6 layers of protection including encryption, HMAC verification, XSS/SQL injection detection, and rate limiting. The system includes OTP-based email verification, draft save functionality, integrated payment processing via Tap Payments, and an admin dashboard with Algolia-powered search for application management.",
+      "A secure government-grade web application for processing UK Electronic Travel Authorization (ETA) applications. I architected and engineered 90% of the frontend application, managing the complete state flow, complex nested validations, and document uploading pipeline. The application handles applications for up to 50 travelers simultaneously, rendering dynamic forms, live upload status feeds, and input validations. Built with advanced security controls including request encryption and anti-injection protections, it incorporates secure SendGrid-based OTP authorization flows, Tap Payments integrations, and a custom administrative dashboard.",
     features: [
       {
         icon: "bi-people-fill",
@@ -348,10 +349,10 @@ export const projectsData = [
       },
     ],
     contributions: [
-      "Designed and built the multi-traveler application form with step-by-step guidance, inline validation, and document upload UI.",
-      "Implemented OTP email verification UI with expiry countdown and resend functionality.",
-      "Built the admin dashboard UI for application management with Algolia-powered search and status filtering.",
-      "Delivered the complete payment UI using the Tap Payments frontend SDK with redirect and confirmation handling.",
+      "Architected and engineered 90% of the platform's frontend application from scratch, translating complex compliance requirements into clean, reusable React components.",
+      "Designed and implemented the core multi-step dynamic wizard interface supporting up to 50 concurrent travelers, utilizing accordion-based forms, nested Zod validation schema, and active document upload UI.",
+      "Led the integration of the Tap Payments SDK, secure OTP SendGrid notification flows, and built the application draft auto-save/restore system using React state hook & client storage lifecycle APIs.",
+      "Developed a custom administrative dashboard with Algolia-powered live search, advanced CSV query exports, and secure role-based dashboard layout routing.",
     ],
     techStackDetailed: {
       frontend: [
@@ -402,6 +403,12 @@ export const projectsData = [
       "Full-stack Kanban board with live collaboration, drag-and-drop, AI assistant, and multi-organization workspace management.",
     overview:
       "A full-featured Kanban-style project management platform built for teams and organizations, modeled after Trello with enhanced capabilities. The platform features real-time collaboration through Socket.IO, allowing multiple users to work simultaneously on boards with instant updates. Includes comprehensive card management with rich text descriptions, file attachments, comments, checklists, labels, priorities, due dates, and member assignments. The system supports multi-organization workspaces with Clerk authentication, role-based access control, and subscription-based board limits. Features an integrated AI assistant powered by OpenAI for task management support, along with Unsplash integration for custom board backgrounds.",
+    liveLinks: [
+      {
+        label: "Live Website",
+        url: "https://nextsprint.nextpak.org/",
+      },
+    ],
     features: [
       {
         icon: "bi-broadcast",
@@ -579,7 +586,7 @@ export const projectsData = [
       },
     ],
     overview:
-      "A dual-sided marketplace platform connecting businesses seeking funding with potential investors. The platform features completely separate user experiences for businesses and funders, each with custom dashboards, workflows, and permissions. Businesses can create verified profiles, upload documentation, and receive funding offers, while funders can browse businesses, send offers, and manage their investment portfolio. The system includes real-time chat with file sharing capabilities, media previews, read receipts, and online presence indicators powered by Supabase Realtime. Features subscription-based access tiers with offer limits, advanced search and filtering, and integrated Stripe payment processing for subscription management.",
+      "A dual-sided fintech marketplace connecting business entrepreneurs with venture funders. I designed and engineered 85% of this platform's client-side architecture, establishing the secure routing systems, separate dashboard states, and cross-role layouts. Features include full Supabase Realtime-integrated messaging systems with document preview capabilities, step-by-step offer construction forms, and full Stripe paywall integrations for organization subscriptions. The entire system is built type-safe with TypeScript, optimized with React Query, and managed using Redux Toolkit.",
     features: [
       {
         icon: "bi-person-workspace",
@@ -619,10 +626,10 @@ export const projectsData = [
       },
     ],
     contributions: [
-      "Built separate dashboard experiences for Business and Funder user roles with distinct workflows and navigation.",
-      "Developed the real-time chat UI with file sharing, media previews, read receipts, and online presence indicators using Supabase Realtime.",
-      "Delivered the offer management workflow UI — sending, tracking, accepting, and declining funding offers.",
-      "Implemented subscription and billing UI with Stripe.js for plan upgrades, payment methods, and cancellation flows.",
+      "Architected and built the entire dual-sided frontend application, implementing separate dashboard experiences, custom navigation drawers, and context-dependent layouts for businesses and investors.",
+      "Engineered the real-time chat interface from scratch using Supabase Realtime, incorporating instant message streaming, file attachment uploads, automatic media preview renders, and typing/online indicators.",
+      "Designed the complete interactive offer negotiation workflow—enabling investors to construct, submit, and track funding offers with instant status updates and integrated scheduling forms.",
+      "Built the subscription paywall and plan management flows using Stripe Elements, complete with quota-tracking badges and payment method update screens.",
     ],
     techStackDetailed: {
       frontend: [
@@ -682,7 +689,7 @@ export const projectsData = [
       },
     ],
     overview:
-      "A professional, SEO-optimized web presence template built for local home service businesses — specifically garage door companies across multiple US locations. The architecture was designed for rapid replication, allowing the same codebase to be customized and deployed for 4-6 different businesses. The project focused heavily on local SEO strategy including Schema.org structured data, automated location-specific image generation, dynamic meta tags, and multi-location service area pages — all aimed at maximizing search visibility for local businesses.",
+      "An enterprise-level web presence and local SEO search optimization template framework. I solely designed, built, and launched 100% of this multi-tenant configuration system, enabling rapid development cycles across 4-6 business clients. The template incorporates local business SEO strategy schemas, automated location-based asset rendering, meta header tags, and dedicated landers. I built an automated asset pipeline with Node.js and structured site configuration layouts to handle local branding assets and deployment easily.",
     features: [
       {
         icon: "bi-search",
@@ -710,10 +717,10 @@ export const projectsData = [
       },
     ],
     contributions: [
-      "Architected a reusable React + TypeScript template enabling rapid deployment for multiple local service business clients.",
-      "Implemented comprehensive local SEO strategy including Schema.org structured data, XML sitemap, Open Graph, and dynamic meta tags.",
-      "Built an automated image generation pipeline using Node.js and Sharp to produce location-specific SEO images at scale.",
-      "Developed 6 geo-targeted service area landing pages with location-specific content optimized for local search ranking.",
+      "Solely designed, engineered, and deployed 100% of this multi-tenant templating system from scratch, enabling fast website generation for local service clients.",
+      "Configured a comprehensive frontend SEO framework using React Helmet Async, injecting custom Schema.org JSON-LD local business models, semantic sitemaps, and Open Graph tags.",
+      "Wrote a custom Node.js automation pipeline utilizing Sharp to auto-generate, optimize, and bundle 36+ localized geo-targeted images with pre-loaded alt descriptions.",
+      "Programmed modular configuration handlers, allowing non-technical developers to launch a fully customized website by modifying a single config file.",
     ],
     techStackDetailed: {
       frontend: [
@@ -747,7 +754,7 @@ export const projectsData = [
     oneLiner:
       "Pixel-perfect Swiss legislative platform with multi-language support, complex data tables, and a hierarchical law structure viewer.",
     overview:
-      "A modern web application for accessing and managing the Swiss legislative system, built to pixel-perfect Figma specifications. The platform provides administrators with tools to manage users, data sources, scraping jobs, and sync settings, while offering a comprehensive structure viewer for navigating Swiss laws hierarchically. Built with full internationalization supporting English, French, German, and Italian — reflecting Switzerland's four official languages.",
+      "A legislative administrative application for managing the Swiss legislative catalog. I was the sole frontend engineer responsible for 90% of the client-side system, developing the responsive architecture, multi-language configurations, and core catalog viewer. Built to pixel-perfect Figma specifications, the platform features a complex nested node tree browser to navigate Swiss laws, advanced tabular interfaces with CSV export handlers, and JWT-authenticated session lifecycle interceptors.",
     features: [
       {
         icon: "bi-layout-text-sidebar",
@@ -787,10 +794,11 @@ export const projectsData = [
       },
     ],
     contributions: [
-      "Delivered pixel-perfect UI implementation across all screens, faithfully translating Figma designs into production-ready React components.",
-      "Built the legislative structure viewer with hierarchical node tree navigation, version toolbar, and multi-level law browsing.",
-      "Developed advanced data tables with search, filtering, sorting, pagination, bulk actions, and CSV export.",
-      "Implemented full multi-language support across 4 languages with i18next, including language detection and complete translation coverage.",
+      "Solely engineered 90% of the client-side system, developing the responsive architecture and routing structures using React, TypeScript, and Zustand.",
+      "Built the legislative structure viewer with deep nested node-tree navigation hierarchies and local version tracking toolbar structures.",
+      "Designed and implemented full multi-language support (English, French, German, Italian) utilizing i18next locales with automatic language-detection routing.",
+      "Developed high-performance custom data tables equipped with advanced multi-column filters, bulk state actions, search pagination, and custom CSV exports.",
+      "Configured Axios request/response interceptors to handle token refresh cycles seamlessly, preventing session drops.",
     ],
     techStackDetailed: {
       frontend: [
