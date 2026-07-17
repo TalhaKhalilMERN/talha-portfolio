@@ -48,7 +48,7 @@ function Projects() {
             className="row g-4 justify-content-center mb-5"
             style={{ maxWidth: "800px", margin: "0 auto" }}
           >
-            <div className="col-4 col-md-4">
+            <div className="col-12 col-sm-4">
               <div className="stat-card-modern p-3">
                 <div className="stat-value" style={{ fontSize: "32px" }}>
                   10+
@@ -58,7 +58,7 @@ function Projects() {
                 </div>
               </div>
             </div>
-            <div className="col-4 col-md-4">
+            <div className="col-12 col-sm-4">
               <div className="stat-card-modern p-3">
                 <div className="stat-value" style={{ fontSize: "32px" }}>
                   20+
@@ -68,7 +68,7 @@ function Projects() {
                 </div>
               </div>
             </div>
-            <div className="col-4 col-md-4">
+            <div className="col-12 col-sm-4">
               <div className="stat-card-modern p-3">
                 <div className="stat-value" style={{ fontSize: "32px" }}>
                   1+ Year
