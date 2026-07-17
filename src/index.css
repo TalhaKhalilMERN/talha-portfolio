@@ -7,7 +7,7 @@
   --border-hover: rgba(255, 255, 255, 0.16);
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-muted: #8a99ad;
   
   /* Accent Colors */
   --accent-blue: #3b82f6;
@@ -33,7 +33,7 @@
   padding: 0;
 }
 
-body {
+html, body {
   margin: 0;
   background-color: var(--bg-primary) !important;
   color: var(--text-secondary) !important;
@@ -42,11 +42,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
@@ -699,6 +701,15 @@ section {
   border-left: 1px solid var(--border-color);
   margin-bottom: 32px;
   transition: var(--transition-smooth);
+}
+
+.resume-contact-link {
+  color: var(--text-secondary) !important;
+  text-decoration: none;
+}
+
+.resume-contact-link:hover {
+  color: var(--text-primary) !important;
 }
 
 .resume-item-modern:last-child {
@@ -1385,6 +1396,13 @@ textarea.contact-form-control {
   border-color: var(--border-hover);
   color: var(--text-primary);
   transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  #scroll-top {
+    bottom: 72px;
+    right: 16px;
+  }
 }
 
 /* Floating Bottom Navigation Dock */
