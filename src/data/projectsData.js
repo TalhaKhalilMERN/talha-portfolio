@@ -293,35 +293,43 @@ export const projectsData = [
   },
   {
     id: 4,
-    slug: "uk-eta",
-    name: "UK ETA Platform",
-    tagline: "Government-Grade Travel Authorization System",
+    slug: "evisa-platform",
+    name: "eVisa Platform",
+    tagline: "Scalable Multi-Country eVisa Application Platform",
     domain: "Gov-Tech",
     color: "#8B5CF6",
     image: UKEtaImg,
     techStack: ["React", "TypeScript", "Firebase", "Tap Payments", "SendGrid"],
     oneLiner:
-      "Secure multi-traveler ETA application platform with OTP verification, document uploads, and enterprise-level security middleware.",
+      "Scalable multi-country eVisa platform supporting secure traveler applications, OTP verification, document uploads, payment processing, and reusable country-specific workflows.",
     liveLinks: [
       {
-        label: "Live Website",
-        url: "https://ukev.com/",
+        label: "UK Website",
+        url: "https://ukevisa.com/",
+      },
+      {
+        label: "Egypt Website",
+        url: "https://egyevisa.com/",
+      },
+      {
+        label: "Azerbaijan Website",
+        url: "https://azerbaijan-evisa.web.app/",
       },
     ],
     overview:
-      "A secure government-grade web application for processing UK Electronic Travel Authorization (ETA) applications. I architected and engineered 90% of the frontend application, managing the complete state flow, complex nested validations, and document uploading pipeline. The application handles applications for up to 50 travelers simultaneously, rendering dynamic forms, live upload status feeds, and input validations. Built with advanced security controls including request encryption and anti-injection protections, it incorporates secure SendGrid-based OTP authorization flows, Tap Payments integrations, and a custom administrative dashboard.",
+      "A scalable multi-country eVisa and Electronic Travel Authorization platform powering multiple government-style visa portals, including the UK, Egypt, and Azerbaijan. I engineered the majority of the frontend architecture, building reusable application workflows that could be adapted across different countries while maintaining country-specific business rules and requirements. The platform supports applications for up to 50 travelers simultaneously, featuring dynamic multi-step forms, secure document uploads, OTP verification, payment processing, and enterprise-grade security controls. It integrates Firebase, SendGrid, Tap Payments, Algolia, and custom administrative dashboards to deliver a secure, production-ready visa processing experience.",
     features: [
       {
         icon: "bi-people-fill",
-        title: "Multi-Traveler Forms",
+        title: "Multi-Country Visa Workflows",
         description:
-          "Accordion-based application interface supporting up to 50 travelers per submission with per-traveler document uploads and validation.",
+          "Reusable application engine supporting country-specific visa requirements, validation rules, and traveler information across multiple eVisa platforms.",
       },
       {
         icon: "bi-shield-check",
-        title: "OTP Email Verification",
+        title: "Multi-Traveler Applications",
         description:
-          "Secure email verification with expiry-based OTP codes required before form submission, powered by SendGrid.",
+          "Accordion-based application workflow supporting up to 50 travelers per submission with per-traveler document uploads and validation.",
       },
       {
         icon: "bi-lock-fill",
@@ -337,9 +345,9 @@ export const projectsData = [
       },
       {
         icon: "bi-speedometer2",
-        title: "Admin Dashboard",
+        title: "Administrative Dashboard",
         description:
-          "Application management with real-time Algolia-powered search, traveler status updates, and email log tracking.",
+          "Centralized dashboard for managing applications, traveler status updates, live search, and operational workflows across multiple visa platforms.",
       },
       {
         icon: "bi-save",
@@ -349,10 +357,13 @@ export const projectsData = [
       },
     ],
     contributions: [
-      "Architected and engineered 90% of the platform's frontend application from scratch, translating complex compliance requirements into clean, reusable React components.",
-      "Designed and implemented the core multi-step dynamic wizard interface supporting up to 50 concurrent travelers, utilizing accordion-based forms, nested Zod validation schema, and active document upload UI.",
-      "Led the integration of the Tap Payments SDK, secure OTP SendGrid notification flows, and built the application draft auto-save/restore system using React state hook & client storage lifecycle APIs.",
-      "Developed a custom administrative dashboard with Algolia-powered live search, advanced CSV query exports, and secure role-based dashboard layout routing.",
+      "Engineered the majority of the frontend architecture for a reusable multi-country eVisa platform, translating complex government compliance requirements into scalable React components and reusable application workflows.",
+
+      "Designed and implemented the dynamic multi-step traveler application engine supporting up to 50 concurrent travelers with nested Zod validation, accordion-based forms, and secure document upload workflows.",
+
+      "Integrated Tap Payments, SendGrid OTP verification, Firebase services, and implemented automatic draft save & recovery functionality to improve application reliability and user experience.",
+
+      "Developed administrative dashboards featuring role-based access control, Algolia-powered search, application management, reporting capabilities, and reusable interfaces shared across multiple country-specific portals.",
     ],
     techStackDetailed: {
       frontend: [
@@ -381,11 +392,20 @@ export const projectsData = [
       ],
     },
     scale: [
-      { label: "Application Pages", value: "14" },
-      { label: "Security Layers", value: "6" },
-      { label: "Max Travelers", value: "50" },
       {
-        label: "Integrations",
+        label: "Country Platforms",
+        value: "3+",
+      },
+      {
+        label: "Max Travelers",
+        value: "50",
+      },
+      {
+        label: "Security Layers",
+        value: "6",
+      },
+      {
+        label: "Core Integrations",
         value: "Firebase, Tap Payments, SendGrid, Algolia",
       },
     ],
